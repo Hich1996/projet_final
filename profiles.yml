@@ -1,0 +1,10 @@
+projet_final:
+  target: ci
+  outputs:
+    ci:
+      type: bigquery
+      method: oauth
+      project: dbt-learning-lab-506412
+      dataset: dbt_hdergal
+      threads: 4
+      location: EU

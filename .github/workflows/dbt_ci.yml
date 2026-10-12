@@ -1,0 +1,34 @@
+name: dbt CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-dbt-models:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: 📥 Récupération du code
+        uses: actions/checkout@v4
+
+      - name: 🔐 Connexion à Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: 🐍 Installation de Python et dbt
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install dbt-bigquery
+
+      - name: 🚀 Lancement de dbt
+        run: |
+          dbt deps
+          dbt run --profiles-dir .
