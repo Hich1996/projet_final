@@ -1,4 +1,4 @@
-projet_final:
+mon_portfolio_dbt:
   target: ci
   outputs:
     ci:
