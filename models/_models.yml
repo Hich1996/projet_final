@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: stg_web_events
-    description: "Table de staging contenant les événements web bruts."
-    columns:
-      - name: event_id
-        description: "Identifiant unique de l'événement"
+  - name: stg_commandes
+    description: "Table de staging contenant les id de commandes"
+    columns: 
+      - name: id_commande
+        description: "id de commandes"
         tests:
           - unique
-          - not_null
+          - not_null 

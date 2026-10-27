@@ -1,0 +1,8 @@
+version: 2
+sources:
+  - name: raw_resto
+    tables:
+      - name: clients
+      - name: commandes
+      - name: livreurs
+        description: données uber_eats 
