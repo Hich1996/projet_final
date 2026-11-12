@@ -1,0 +1,10 @@
+version: 2
+models:
+  - name: marts_returning_users
+    description: "Liste des utilisateurs ayant effectué un achat répété dans un délai de 1 à 7 jours."
+    columns:
+    - name: user_id
+      description: "identifiant unique de l'utilisateur"
+      tests:
+      - unique
+      - not_null
